@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+  <style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+    }
+    #calculator {
+      width: 500px;
+      height: 620px;
+      border: none;
+      background-image: url("black.png");
+    }
+    .calc {
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      position: relative;
+      left: 20px;
+    }
+    .icon-size {
+      width: 40px;
+      height: 30px;
+    }
+    .split {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      position: relative;
+      top: 13px;
+    }
+    .icons {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      gap: 12px;
+    }
+    button {
+      width: 70px;
+      height: 65px;
+      border-radius: 8px;
+      border: 1px solid black;
+      background-color: whitesmoke;
+      color: black;
+    }
+    button {
+      font-size: 20px;
+      font-weight: bolder;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      gap: 47px;
+    }
+    #display {
+      color:red;
+      text-align: right;
+      font-weight: bold;
+      position: relative;
+      bottom: 14px;
+      right: 10px;
+    }
+    #answer {
+      color: red;
+      text-align: right;
+      font-size: 17px;
+      font-weight: bold;
+      position: relative;
+      bottom: 30px;
+      right: 10px;
+    }
+    #col {
+      color: black;
+      width: 60px;
+      height: 30px;
+      background-color: white;
+      text-align: center;
+      border-radius: 7px;
+      border: 1px solid black;
+      font-weight: bolder;
+      margin-left: 10px;
+    }
+    #colo {
+      color: black;
+      width: 60px;
+      height: 30px;
+      background-color: white;
+      text-align: center;
+      border-radius: 7px;
+      border: 1px solid black;
+      font-weight: bolder;
+    }
+    .coll {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: row;
+      gap: 5px;
+    }
+  </style>
+<body>
+    <div id="calculator">
+      <div class="split">
+       <div class="calc">Calculator</div>
+       <div class="icons">
+       <div><img src="restart (1).png" alt="reset icon" class="icon-size"></div>
+       <div><img src="square-root.png" alt="reset icon" class="icon-size"></div>
+       <div><img src="three icon.png" alt="reset icon" class="icon-size"></div>
+       </div>
+
+    </div><br><br><br>
+    <div class="coll">
+      <button id ="col">white</button>
+      <button id ="colo">dark</button>
+    </div>
+
+    <h1 id="display">0</h1>
+    <p id="answer">=</p>
+    <div class="container">
+      <button id="seven">7</button>
+      <button id="eight">8</button>
+      <button id="nine">9</button>
+      <button id="plus">+</button>
+    </div><br><br>
+
+    <div class="container">
+      <button id="four">4</button>
+      <button id="five">5</button>
+      <button id="six">6</button>
+      <button id="multiply">*</button>
+    </div><br><br>
+
+    <div class="container">
+      <button id="one">1</button>
+      <button id="two">2</button>
+      <button id="three">3</button>
+      <button id="minus">-</button>
+    </div><br><br>
+
+    <div class="container">
+      <button id="zero">0</button>
+      <button id="dot">.</button>
+      <button id="divide">/</button>
+      <button id="equals">=</button>
+    </div><br><br>
+    </div>
+    
+    <script>
+      const answer = document.getElementById("answer");
+      const display = document.getElementById("display");
+      let number ="";
+      let solve ="";
+      let ans = "";
+      const seven = document.getElementById("seven");
+      const eight = document.getElementById("eight");
+      const nine = document.getElementById("nine");
+      const plus = document.getElementById("plus");
+
+      const four = document.getElementById("four");
+      const five = document.getElementById("five");
+      const six = document.getElementById("six");
+      const multiply = document.getElementById("multiply");
+
+      const one = document.getElementById("one");
+      const two = document.getElementById("two");
+      const three = document.getElementById("three");
+      const minus = document.getElementById("minus");
+
+      const zero = document.getElementById("zero");
+      const dot = document.getElementById("dot");
+      const divide = document.getElementById("divide");
+      const equals = document.getElementById("equals");
+
+      seven.addEventListener("click", function () {
+        number = number + "7";
+        display.textContent= number;
+      })
+      eight.addEventListener("click", function () {
+        number = number + "8";
+        display.textContent= number;
+      })
+      nine.addEventListener("click", function () {
+        number = number + "9";
+        display.textContent= number;
+      })
+      plus.addEventListener("click", function () {
+        solve = "+";
+        number= number + "+";
+        display.textContent= number;
+      })
+
+      four.addEventListener("click", function () {
+        number = number + "4";
+        display.textContent= Number(number);
+      })
+      five.addEventListener("click", function () {
+        number = number + "5";
+        display.textContent= number;
+      })
+      six.addEventListener("click", function () {
+        number = number + "6";
+        display.textContent= number;
+      })
+      multiply.addEventListener("click", function () {
+        solve =  "*";
+        display.textContent= solve;
+      })
+
+      one.addEventListener("click", function () {
+        number = number + "1";
+        display.textContent= number;
+      })
+      two.addEventListener("click", function () {
+        number = number + "2";
+        display.textContent= number;
+      })
+      three.addEventListener("click", function () {
+        number = number + "3";
+        display.textContent= number;
+      })
+      minus.addEventListener("click", function () {
+        solve = "-";
+        display.textContent= solve;
+      })
+
+      zero.addEventListener("click", function () {
+        number = number + "0";
+      })
+      dot.addEventListener("click", function () {
+        number = number + ".";
+        display.textContent= number;
+      })
+      divide.addEventListener("click", function () {
+        solve =  "/";
+        display.textContent= solve;
+      })
+      equals.addEventListener("click", function () {
+       if (solve === "+") {
+
+    let ans = number.split("+");
+
+    let result = 0;
+
+    for (let i = 0; i < ans.length; i++) {
+        result = result + Number(ans[i]);
+    }
+
+       answer.textContent = result;
+  }
+
+       if (solve === "-") {
+
+    let ans = number.split("-");
+
+    let result = 0;
+
+    for (let i = 0; i < ans.length; i++) {
+        result = result + Number(ans[i]);
+    }
+
+       answer.textContent = result;
+       }
+
+       if (solve === "*" ) {
+        ans = number. split("+");
+        answer.textContent= ans;
+       }
+
+       if (solve === "/" ) {
+        ans = number. split("+");
+        answer.textContent= ans;
+       }
+      })
+    </script>
+
+    <script>
+      let x = "12+2";
+
+      let result = x.split("+");
+
+      let firstNumber = Number(result[0]);
+      let secondNumber = Number(result[1]);
+
+      console.log(firstNumber);
+      console.log(secondNumber);
+      console.log(firstNumber + secondNumber);
+    </script>
+
+
+    <script>
+      const white = document.getElementById("col");
+      const black = document.getElementById("colo");
+      const calculator = document.getElementById("calculator")
+
+      black.addEventListener("click", function () {
+        calculator.style.backgroundImage = "url(black.png)";
+      })
+      white.addEventListener("click", function () {
+        calculator.style.backgroundImage = "url(white.png)";
+      })
+    </script>
+    
+</body>
+</html>
