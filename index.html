@@ -1,0 +1,471 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+</head>
+  <style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+    }
+    #calculator  {
+      width: 500px;
+      height: 650px;
+      border: none;
+      background-image: url("black.png");
+    }
+    #cal {
+      width: 50px;
+      height: 45px;
+      font-size: 20px;
+      font-weight: bolder;
+      color: darkred;
+      position: relative;
+      left: 20px;
+    }
+    .icon-size {
+      width: 40px;
+      height: 30px;
+    }
+    .split {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      position: relative;
+      top: 13px;
+    }
+    .icons {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      gap: 12px;
+    }
+    button {
+      width: 60px;
+      height: 54px;
+      border-radius: 8px;
+      border: 1px solid black;
+      background-color: whitesmoke;
+      color: black;
+    }
+    button {
+      font-size: 20px;
+      font-weight: bolder;
+    }
+    .container {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      gap: 65px;
+      margin-bottom: 10px;
+      padding: 6px;
+    }
+    #display {
+      color:red;
+      text-align: right;
+      font-weight: bold;
+      position: relative;
+      bottom: 14px;
+      right: 10px;
+    }
+    #answer {
+      color: darkcyan;
+      text-align: right;
+      font-size: 25px;
+      font-weight: bolder;
+      position: relative;
+      bottom: 30px;
+      right: 10px;
+    }
+    #col {
+      color: black;
+      width: 60px;
+      height: 30px;
+      background-color: white;
+      text-align: center;
+      border-radius: 7px;
+      border: 1px solid black;
+      font-weight: bolder;
+      margin-left: 10px;
+    }
+    #colo {
+      color: black;
+      width: 60px;
+      height: 30px;
+      text-align: center;
+      font-weight: bolder;
+    }
+    .coll {
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: row;
+      gap: 5px;
+    }
+    #cancel {
+        width: 34px;
+        height: 30px;
+      }
+      #cacel {
+        display: flex;
+        justify-content: center;
+      }
+
+    @media (max-width: 480px) {
+      #display {
+       position: relative;
+       right: 20px;
+      }
+      #answer {
+      position: relative;
+      right: 20px;
+      }
+      button {
+        width: 60px;
+        height: 57px;
+      }
+      .container {
+        justify-content: space-between;
+        gap: 0;
+        padding: 0 5px;
+      }
+      .icon-size {
+        width: 30px;
+        height: 25px;
+      }
+      .icons {
+        gap: 8px;
+      }
+      #calculator {
+        height: 750px;
+      }
+      .container {
+        padding: 0 1px;
+        margin-top: 50px;
+      }
+    }
+  </style>
+<body>
+    <div id="calculator">
+      <div class="split">
+       <div id="cal">TAP ME</div>
+       <div class="icons">
+       <div><img src="restart (1).png" alt="reset icon" class="icon-size"></div>
+       <div><img src="square-root.png" alt="reset icon" class="icon-size"></div>
+       <div><img src="three icon.png" alt="reset icon" class="icon-size"></div>
+       </div>
+
+    </div><br><br><br>
+    <div class="coll">
+      <button id ="col">white</button>
+      <button id ="colo">dark</button>
+    </div>
+
+    <h1 id="display">0</h1>
+    <p id="answer">=</p>
+    <div class="container">
+      <button id="seven">7</button>
+      <button id="eight">8</button>
+      <button id="nine">9</button>
+      <button id="plus">+</button>
+    </div>
+
+    <div class="container">
+      <button id="four">4</button>
+      <button id="five">5</button>
+      <button id="six">6</button>
+      <button id="multiply">*</button>
+    </div>
+
+    <div class="container">
+      <button id="one">1</button>
+      <button id="two">2</button>
+      <button id="three">3</button>
+      <button id="minus">-</button>
+    </div>
+
+    <div class="container">
+      <button id="zero">0</button>
+      <button id="dot">.</button>
+      <button id="divide">/</button>
+      <button id="equals">=</button>
+    </div>
+       
+    <div id="cacel">
+      <button id="cancellation"><img src="cancel.png" alt="cancellation " id="cancel"></button>
+    </div>
+    </div>
+    
+    <script>
+      const cancellation = document.getElementById("cancellation");
+      const answer = document.getElementById("answer");
+      const display = document.getElementById("display");
+      let number ="";
+      let solve ="";
+      let ans = "";
+      let work= "";
+      const seven = document.getElementById("seven");
+      const eight = document.getElementById("eight");  
+      const nine = document.getElementById("nine");
+      const plus = document.getElementById("plus");
+
+      const four = document.getElementById("four");
+      const five = document.getElementById("five");
+      const six = document.getElementById("six");
+      const multiply = document.getElementById("multiply");
+
+      const one = document.getElementById("one");
+      const two = document.getElementById("two");
+      const three = document.getElementById("three");
+      const minus = document.getElementById("minus");
+
+      const zero = document.getElementById("zero");
+      const dot = document.getElementById("dot");
+      const divide = document.getElementById("divide");
+      const equals = document.getElementById("equals");
+
+      seven.addEventListener("click", function () {
+        number = number + "7";
+        display.textContent= number;
+      })
+      eight.addEventListener("click", function () {
+        number = number + "8";
+        display.textContent= number;
+      })
+      nine.addEventListener("click", function () {
+        number = number + "9";
+        display.textContent= number;
+      })
+      plus.addEventListener("click", function () {
+        solve = "+";
+        number= number + "+";
+        display.textContent= number;
+      })
+
+      four.addEventListener("click", function () {
+        number = number + "4";
+        display.textContent= number;
+      })
+      five.addEventListener("click", function () {
+        number = number + "5";
+        display.textContent= number;
+      })
+      six.addEventListener("click", function () {
+        number = number + "6";
+        display.textContent= number;
+      })
+      multiply.addEventListener("click", function () {
+        solve =  "*";
+        number = number + "*";
+        display.textContent= number;
+      })
+
+      one.addEventListener("click", function () {
+        number = number + "1";
+        display.textContent= number;
+      })
+      two.addEventListener("click", function () {
+        number = number + "2";
+        display.textContent= number;
+      })
+      three.addEventListener("click", function () {
+        number = number + "3";
+        display.textContent= number;
+      })
+      minus.addEventListener("click", function () {
+        solve = "-";
+        number = number + "-";
+        display.textContent= number;
+      })
+
+      zero.addEventListener("click", function () {
+        number = number + "0";
+        display.textContent = number;
+      })
+      dot.addEventListener("click", function () {
+        number = number + ".";
+        display.textContent= number;
+      })
+      divide.addEventListener("click", function () {
+        solve =  "/";
+        number = number + "/";
+        display.textContent= number;
+      })
+      cancellation.addEventListener("click", function () {
+        number = "";
+        display.textContent = "0";
+        answer.textContent = "=";
+      })
+
+      equals.addEventListener("click", function () { 
+       if (solve === "+") {
+
+    let ans = number.split("+");
+
+    let result = 0;
+
+    for (let i = 0; i < ans.length; i++) {
+        result = result + Number(ans[i]);
+    }
+
+       answer.textContent = result;
+  } 
+
+       if (solve === "-") {
+
+       let an = number.split("-");
+
+        let result= Number(an[0]);
+
+       for (let e = 1; e < an.length; e++) {
+        result = result - Number(an[e]);
+        }
+
+       answer.textContent = result;
+       }
+
+       if (solve === "*" ) {
+        let ans = number. split("*");
+         
+        let result = Number(ans[0]);
+
+        for (let g = 1; g < ans.length; g++) {
+          result = result * Number(ans[g]); 
+        }
+        answer.textContent= result;
+       }
+
+       if (solve === "/" ) {
+        let ans = number. split("/");
+        let result = Number(ans[0]);
+
+      for (let p = 1; p < ans.length; p++) {
+        result = result / Number(ans[p]);
+      }
+      answer.textContent= result;
+       }
+
+  
+   // Put this inside your existing equals click
+
+let numbers = [];
+let operators = [];
+let work = "";
+
+// Go through the whole expression
+for (let i = 0; i < number.length; i++) {
+
+    if (
+        number[i] === "+" ||
+        number[i] === "-" ||
+        number[i] === "*" ||
+        number[i] === "/"
+    ) {
+
+        // Save the number we have collected
+        numbers.push(Number(work));
+
+        // Save the operator
+        operators.push(number[i]);
+
+        // Start collecting the next number
+        work = "";
+
+    } else {
+
+        // Keep adding digits to the current number
+        work = work + number[i];
+    }
+}
+
+// Save the last number
+numbers.push(Number(work));
+
+
+// MULTIPLICATION AND DIVISION FIRST
+for (let i = 0; i < operators.length; i++) {
+
+    if (operators[i] === "*") {
+
+        numbers[i] = numbers[i] * numbers[i + 1];
+
+        numbers.splice(i + 1, 1);
+        operators.splice(i, 1);
+
+        i--;
+    }
+
+    else if (operators[i] === "/") {
+
+        numbers[i] = numbers[i] / numbers[i + 1];
+
+        numbers.splice(i + 1, 1);
+        operators.splice(i, 1);
+
+        i--;
+    }
+}
+
+
+// ADDITION AND SUBTRACTION
+let result = numbers[0];
+
+for (let i = 0; i < operators.length; i++) {
+
+    if (operators[i] === "+") {
+        result = result + numbers[i + 1];
+    }
+
+    else if (operators[i] === "-") {
+        result = result - numbers[i + 1];
+    }
+}
+
+answer.textContent = result;
+
+      })
+    </script>
+
+    <script>
+      let x = "12+2";
+
+      let result = x.split("+");
+
+      let firstNumber = Number(result[0]);
+      let secondNumber = Number(result[1]);
+
+      console.log(firstNumber);
+      console.log(secondNumber);
+      console.log(firstNumber + secondNumber);
+    </script>
+
+
+    <script>
+      const white = document.getElementById("col");
+      const black = document.getElementById("colo");
+      const calculator = document.getElementById("calculator")
+
+      black.addEventListener("click", function () {
+        calculator.style.backgroundImage = "url(black.png)";
+      })
+      white.addEventListener("click", function () {
+        calculator.style.backgroundImage = "url(white.png)";
+      })
+    </script>
+
+    <script>
+      const head = document.getElementById("cal");
+      const calculate = document.getElementById("")
+
+      head.addEventListener("click", function () {
+        cal.textContent = "Hello user!";
+        cal.style.color = "cyan";
+      })
+    </script>
+    
+</body>
+</html>
